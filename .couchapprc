@@ -1,1 +1,10 @@
-{}
+{
+  "env" : {
+    "default" : {
+      "db" : "http://root:noirechat@localhost:5984/t0ha"
+    },
+    "prod" : {
+      "db" : "http://admin:password@myhost.com/mydb"
+    }
+  }
+}
