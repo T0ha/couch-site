@@ -24,23 +24,49 @@ $(function() {
 			  _init: {
 			      async: function(cb) {
 				  db.view( design + "/navigation", {
-					      descending : "true",
+					      descending : "false",
 					      limit : 10,
-					      success : function(dt) {        
-						  cb(dt);
+					      success : function(data) {        
+						  cb(data.rows);
 					      }
 					  });
 			      },
 			      
-			     // path: '/index',
+			      path: '/index',
 			      mustache: $('#nav-buttons').html(),
-			      data: function(but) {
-				  console.log(but);
-				  return {nav: but};
+			      data: function(buttons) {
+				  //console.log(but);
+				  return {nav: buttons};
+				  
+			      },
+			      after: function(buttons) {
+				  console.log(buttons);
+				  $('#main').load("_show/page/" + buttons[0].id);
+				  $("#" + buttons[0].id ).parent().css('background-color', '#ddd');
+				  $()
+			      }
+			  },
+			  page:  {
+			      path: '/page/:id',
+			      /*async: function (cb) {
+				  db.view(design + "/navigation", {
+					      success: function(data) {
+						  cb(data)
+					      }});
+			      },*/
+			      mustache: "<div> {{id}}</div>" ,
+			      data: function() {
+				  return {id: 11};
 				  
 			      }
+				  
 			  }
+
 			  
 		      });
+      
+			 
+			
+		     
  
  });

@@ -14,6 +14,11 @@ body {
     text-align: center;
 }
 
+.left {
+    float: left;
+    margin: 10px;
+}
+
 #wrapper {
     display:inline-block;
     text-align: left;
@@ -23,6 +28,28 @@ body {
 #top {
     width: 100%;
     height: 48px;
+}
+
+#top h1 {
+    display: inline-block;
+    color: #ffffff;
+    margin-top: 0;
+    font-family: Georgia, "Times new roman", serif;
+    font-weight: 400;
+}
+
+#social {
+    float: right;
+    height: 48px;
+}
+
+#social>* {
+    float: left;
+    margin: 10px;
+}
+
+#lj {
+    height:25px;
 }
 
 #nav {
@@ -49,74 +76,15 @@ body {
     line-height: 1.0;
 }
 
-h1 {
-    color: #ffffff;
-    margin-top: 0;
-    font-family: Georgia, "Times new roman", serif;
-    font-weight: 400;
+
+
+#main {
+    font-family: Georgia, Times, serif;
+    font-size: 14px;
+    line-height: 24px;
 }
 
-#account {
-  float:right;
-}
-
-#profile {
-  border:4px solid #edd;
-  background:#fee;
-  padding:8px;
-  margin-bottom:8px;
-}
-
-#content {
-  border:4px solid #dde;
-  background:#eef;
-  padding:8px;
-  width:60%;
-  float:left;
-}
-
-#sidebar {
-  border:4px solid #dfd;
-  padding:8px;
-  float:right;
-  width:30%;
-}
-
-#items li {
-  border:4px solid #f5f5ff;
-  background:#fff;
-  padding:8px;
-  margin:4px 0;
-}
-
-form {
-  padding:4px;
-  margin:6px;
-  background-color:#ddd;  
-}
-
-div.avatar {
-  padding:2px;
-  padding-bottom:0;
-  margin-right:4px;
-  float:left;
-  font-size:0.78em;
-  width : 60px;
-  height : 60px;
-  text-align: center;
-}
-
-div.avatar .name {
-  padding-top:2px;
-}
-
-div.avatar img {
-  margin:0 auto;
-  padding:0;
-  width : 40px;
-  height : 40px;
-}
-
-ul {
-  list-style: none;
+#main h1{
+    margin: 1em;
+    color: #000000;
 }
