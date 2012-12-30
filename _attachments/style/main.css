@@ -14,9 +14,26 @@ body {
     text-align: center;
 }
 
+ul, ol {
+    list-style-position: inside;
+}
+
+p {
+    margin: 20px 0;
+}
+
 .left {
     float: left;
-    margin: 10px;
+    margin: 20px;
+}
+
+.right {
+    float: right;
+    margin: 20px;
+}
+
+.block {
+    display: block;
 }
 
 #wrapper {
@@ -87,4 +104,11 @@ body {
 #main h1{
     margin: 1em;
     color: #000000;
+}
+
+#bottom {
+    padding: 10px;
+    border-top: #1010aa 1px dotted;
+    vertical-align: top;
+    text-align: center;
 }

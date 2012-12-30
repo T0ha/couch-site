@@ -1,35 +1,16 @@
 // Apache 2.0 J Chris Anderson 2011
-$(function() {   
-    // friendly helper http://tinyurl.com/6aow6yn
-    $.fn.serializeObject = function() {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
-
-    var path = unescape(document.location.pathname).split('/'),
-        design = path[3],
-        db = $.couch.db(path[1]);
+$(function() {
+      
     $('#nav').evently({
 			  _init: {
 			      async: function(cb) {
-				  db.view( design + "/navigation", {
+				  $.getJSON( "/_view/navigation", {
 					      descending : "false",
-					      limit : 10,
-					      success : function(data) {        
+					      limit : 10 },
+					      function(data) {        
 						  cb(data.rows);
 					      }
-					  });
+					  );
 			      },
 			      
 			      path: '/index',
@@ -43,30 +24,22 @@ $(function() {
 				  console.log(buttons);
 				  $('#main').load("_show/page/" + buttons[0].id);
 				  $("#" + buttons[0].id ).parent().css('background-color', '#ddd');
-				  $()
+				  $('#nav').pathbinder("page", "/page/:id");
 			      }
 			  },
-			  page:  {
-			      path: '/page/:id',
-			      /*async: function (cb) {
-				  db.view(design + "/navigation", {
-					      success: function(data) {
-						  cb(data)
-					      }});
-			      },*/
-			      mustache: "<div> {{id}}</div>" ,
-			      data: function() {
-				  return {id: 11};
-				  
-			      }
-				  
+			  page: function(e, id) {
+			      $('#main').load("_show/page/" + id.id);
+			      $('#nav li').css('background-color', '#eee');
+			      $("#" + id.id ).parent().css('background-color', '#ddd');
 			  }
+				  
+		      
 
 			  
-		      });
+		     });
       
 			 
 			
 		     
  
- });
+});

@@ -4,7 +4,7 @@
       "db" : "http://root:noirechat@localhost:5984/t0ha"
     },
     "prod" : {
-      "db" : "http://admin:password@myhost.com/mydb"
+      "db" : "https://t0ha:N01reChat@t0ha.cloudant.com/t0ha"
     }
   }
 }
