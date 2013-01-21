@@ -1,7 +1,14 @@
 function(doc, req) {  
     var output = "<h1>" + doc.header + "</h1>";
     if (typeof(doc.body) == "string"){
-	return output + doc.body;
+	return output  + doc.body.replace(/\$\$(.*?)\$\$/g, function(f, vname ) {
+					     if (vname == "doc") {
+						 return doc._id;	 
+					     } else if (vname == "attachment") {
+						 return "doc/" + doc._id;
+					     }
+					 }); 
+
     } else if (doc.body.splice){
 	for (var i = 0; i < doc.body.length; i++) {
 	    var cur = doc.body[i];
