@@ -1,0 +1,8 @@
+[
+    {"from": "/", "to": "/index.html"},
+    {"from": "/img/", "to": "/img/"},
+    {"from": "/style/", "to": "/style/"},
+    {"from": "/script/", "to": "/script/"},
+    {"from": "/doc/:id/:file", "to": "../../:id/:file"},
+    {"from":  "*", "to": "/*"}
+]
