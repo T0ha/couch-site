@@ -16,12 +16,12 @@ $(function() {
 			      path: '/index',
 			      mustache: $('#nav-buttons').html(),
 			      data: function(buttons) {
-				  //console.log(but);
+				  
 				  return {nav: buttons};
 				  
 			      },
 			      after: function(buttons) {
-				  console.log(buttons);
+				 
 				  $('#main').load("_show/page/" + buttons[0].id);
 				  $("#" + buttons[0].id ).parent().css('background-color', '#ddd');
 				  $('#nav').pathbinder("page", "/page/:id");
